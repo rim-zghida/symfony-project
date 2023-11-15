@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Univ22 index{% endblock %}
+
+{% block body %}
+    <h1>Univ22 index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Teacher</th>
+                <th>Email</th>
+                <th>Adresses</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for univ22 in univ22s %}
+            <tr>
+                <td>{{ univ22.id }}</td>
+                <td>{{ univ22.teacher }}</td>
+                <td>{{ univ22.email }}</td>
+                <td>{{ univ22.adresses }}</td>
+                <td>
+                    <a href="{{ path('app_univ22_show', {'id': univ22.id}) }}">show</a>
+                    <a href="{{ path('app_univ22_edit', {'id': univ22.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_univ22_new') }}">Create new</a>
+{% endblock %}

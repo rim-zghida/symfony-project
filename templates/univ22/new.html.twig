@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Univ22{% endblock %}
+
+{% block body %}
+    <h1>Create new Univ22</h1>
+
+    {{ include('univ22/_form.html.twig') }}
+
+    <a href="{{ path('app_univ22_index') }}">back to list</a>
+{% endblock %}
